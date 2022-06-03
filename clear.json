@@ -1,0 +1,15 @@
+{
+    "urlAuth": "https://prenotami.esteri.it/Home/Login",
+    "urlVisa": "https://prenotami.esteri.it/Services/Booking/1090",
+    "phrase": "Al momento non ci sono date disponibili per il servizio richiesto",
+    "counter": 0,
+    "log": [],
+    "sid": "AC4b1fb84e16c1460ad115de4d3cc51675",
+    "token": "c07a9c1cc4df8b0b92906e32c4134f62",
+    "phones": ["+375293327812"],
+    "numberFrom": "+14172323445",
+    "notificationText": "Urgently!\n  Visa is available now!\n  Go to the https://prenotami.esteri.it/Services/Booking/1090\n\t{0}",
+    "lastRequestDate": "",
+    "cookiesModified": "",
+    "cookies": {}
+}

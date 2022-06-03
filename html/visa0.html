@@ -23,7 +23,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home Page - Prenot@Mi</title>
+    <title>Index - Prenot@Mi</title>
 
     <link href="/Content/css/app.css" rel="stylesheet"/>
 
@@ -52,7 +52,7 @@
     <script src="/Content/js/dataTables.buttons.js"></script>
     <script src="/Content/js/buttons.print.js"></script>
 </head>
-<body class=''>
+<body class='loggedin'>
     
 
 <style>
@@ -66,8 +66,13 @@
             <a href="https://www.esteri.it/mae/it/" target="_blank">Ministero degli Affari Esteri e della Cooperazione Internazionale</a>
 
                 <div class="top-nav__languages">
-                    <a class="active" href="/Language/ChangeLanguage?lang=1">Ita</a>
-                    <a class="" href="/Language/ChangeLanguage?lang=2">En</a>
+
+                        <a class="active" href="/Language/ChangeLanguage?lang=1">ITA</a>
+                        <a class="" href="/Language/ChangeLanguage?lang=2">ENG</a>
+                        <a class="" href="/Language/ChangeLanguage?lang=21">RUS</a>
+                        <a class="" href="/Language/ChangeLanguage?lang=33">BEL</a>
+                        <a class="" href="/Language/ChangeLanguage"></a>
+
                 </div>
 
         </div>
@@ -83,6 +88,7 @@
                         <img id="profileImg"
                              src="/Content/img/logo.png"
                              alt="">
+                            <a href=https://ambminsk.esteri.it target="_blank"><figcaption>AMBASCIATA D&#39;ITALIA A MINSK, BIELORUSSIA</figcaption></a>
                     </figure>
                 </div>
 
@@ -133,6 +139,15 @@
                 </li>
             </ul>
             <br />
+                <div>
+                    <figure class="main-nav__avatar">
+                        <img id="profileImg"
+                             style="width:52px;height:52px;border-radius:50%;"
+                             src="/Content/img/Default_Profile_Image.png"
+                             alt="">
+                        <figcaption>Dzmitry Khilko</figcaption>
+                    </figure>
+                </div>
             <button type="button" class="main-nav__mobile-menu">
                 <svg viewBox="0 0 448 512">
                     <use xlink:href="#menu"></use>
@@ -158,50 +173,266 @@
 </script>
     <main id="main" role="main">
 
+<script src="/Content/js/menu-add.js"></script>
+<nav class="app-menu">
+
+    <ul class="app-menu__menu">
+            <li>
+                <a href='/' id="simple" class=" element ">
+                    
+                    <span>Home </span>
+                </a>
+            </li>
+            <li>
+                <a href='/Reservation' id="simple" class="element  ">
+                    
+                    <span>I miei appuntamenti</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Services" id="advanced" class="element  ">
+                    
+                    <span>Prenota</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a id="profile-dropbtn" class="dropbtn  ">
+                    
+                    <span>Il mio profilo</span>
+                </a>
+                <div id="profile-dropdown-container" class="dropdown-content">
+                    <a href="/Manage/ChangeUserData">I miei dati</a>
+                    <a href="/Manage/ChangePassword">Cambia password</a>
+                </div>
+            </li>
+            <li>
+                <a href='/Relocation' id="testo" class="element  ">
+                    
+                    <span>Cambio Sede</span>
+                </a>
+            </li>
+            <li>
+<form action="/Account/LogOff" id="logoutForm" method="post">                    <button type="submit">
+                        
+                        <span>Disconnetti</span>
+                    </button>
+</form>            </li>
+    </ul>
+    <ul class="app-menu__social">
+        <li>
+            <span>Seguici</span>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/ItalyMFA.it" target="_blank" rel="noopener noreferrer">
+                <span class="visuallyhidden">Facebook</span>
+                <svg viewBox="0 0 25 25" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="#8d8d8d" fill-rule="nonzero" d="M12.413 0C5.568 0 0 5.569 0 12.413s5.569 12.413 12.413 12.413 12.413-5.569 12.413-12.413C24.826 5.568 19.258 0 12.413 0zM15.5 12.85h-2.02v7.198h-2.992V12.85H9.066v-2.544h1.422V8.661c0-1.179.56-3.02 3.02-3.02l2.218.008v2.47h-1.61c-.262 0-.634.13-.634.693v1.495h2.28L15.5 12.85z"></path>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/ItalyMFA" target="_blank" rel="noopener noreferrer">
+                <span class="visuallyhidden">Twitter</span>
+                <svg viewBox="0 0 25 25" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="#8d8d8d" fill-rule="nonzero" d="M12.484 0C5.59 0 0 5.59 0 12.484 0 19.38 5.59 24.97 12.484 24.97c6.895 0 12.485-5.59 12.485-12.485C24.969 5.588 19.379 0 12.484 0zm6.211 9.682l.01.398c0 4.063-3.092 8.745-8.746 8.745a8.699 8.699 0 0 1-4.71-1.381 6.168 6.168 0 0 0 4.55-1.272 3.079 3.079 0 0 1-2.872-2.135c.19.036.38.053.58.053.28 0 .552-.036.81-.106a3.077 3.077 0 0 1-2.467-3.013v-.04a3.07 3.07 0 0 0 1.392.386 3.073 3.073 0 0 1-.951-4.103 8.723 8.723 0 0 0 6.335 3.212 3.074 3.074 0 0 1 5.239-2.803 6.224 6.224 0 0 0 1.952-.746 3.082 3.082 0 0 1-1.351 1.701 6.162 6.162 0 0 0 1.765-.483 6.213 6.213 0 0 1-1.536 1.587z"></path>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/user/MinisteroEsteri?gl=IT&hl=it" target="_blank" rel="noopener noreferrer">
+                <span class="visuallyhidden">Youtube</span>
+                <svg viewBox="0 0 25 25" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g fill="#8d8d8d" fill-rule="nonzero">
+                        <path d="M6.55 13.388h.989v5.35h.935v-5.35H9.48v-.876H6.55zM14.458 14.042c-.31 0-.598.17-.87.503v-2.033h-.84v6.227h.84v-.45c.282.347.57.514.87.514.334 0 .56-.176.671-.522.057-.197.086-.505.086-.935V15.5c0-.44-.03-.746-.086-.933-.112-.348-.337-.524-.671-.524zm-.085 3.37c0 .42-.122.626-.365.626-.138 0-.279-.066-.42-.207v-2.827c.141-.14.282-.205.42-.205.242 0 .365.215.365.633v1.98zM11.18 17.645c-.187.263-.363.393-.532.393-.112 0-.176-.066-.197-.197-.007-.027-.007-.13-.007-.326v-3.416h-.841v3.668c0 .328.028.55.074.69.084.235.271.346.542.346.31 0 .626-.187.96-.57v.506h.842v-4.64h-.841v3.546zM11.901 9.813c.274 0 .405-.217.405-.651V7.19c0-.434-.131-.65-.405-.65s-.405.216-.405.65v1.972c0 .434.131.65.405.65z"></path>
+                        <path d="M12.468 0C5.582 0 0 5.582 0 12.468s5.582 12.468 12.468 12.468 12.468-5.582 12.468-12.468S19.354 0 12.468 0zm1.387 5.832h.847v3.452c0 .199 0 .302.01.33.019.132.086.199.2.199.17 0 .348-.132.536-.398V5.832h.85v4.688h-.85v-.511c-.338.388-.66.576-.97.576-.274 0-.463-.111-.548-.349-.047-.142-.075-.366-.075-.697V5.832zM10.646 7.36c0-.5.085-.867.266-1.104.235-.32.566-.481.99-.481.425 0 .755.16.99.48.178.238.264.604.264 1.105v1.642c0 .499-.086.868-.264 1.103-.235.32-.565.48-.99.48-.424 0-.755-.16-.99-.48-.18-.235-.266-.604-.266-1.103V7.36zM8.374 4.23l.67 2.47.642-2.47h.953L9.505 7.972v2.548h-.942V7.972c-.085-.451-.274-1.113-.576-1.99-.198-.584-.405-1.17-.604-1.753h.991zm10.806 14.92a1.758 1.758 0 0 1-1.503 1.366c-1.726.193-3.47.194-5.21.193-1.738 0-3.484 0-5.209-.193a1.756 1.756 0 0 1-1.503-1.367c-.242-1.053-.242-2.203-.242-3.288s.003-2.235.245-3.288c.17-.74.775-1.286 1.503-1.367 1.725-.193 3.47-.194 5.21-.193 1.737 0 3.483 0 5.208.193a1.758 1.758 0 0 1 1.504 1.367c.242 1.053.24 2.203.24 3.288s0 2.235-.243 3.288z"></path>
+                        <path d="M17.135 14.042c-.43 0-.764.158-1.007.476-.178.235-.26.597-.26 1.093v1.625c0 .493.092.859.27 1.091.243.317.578.475 1.018.475.44 0 .784-.166 1.016-.503.102-.149.169-.317.197-.504.008-.084.018-.27.018-.541v-.123h-.858c0 .337-.01.524-.018.57-.048.225-.169.337-.376.337-.289 0-.43-.215-.43-.644v-.823h1.682v-.96c0-.496-.084-.859-.26-1.094-.235-.316-.57-.475-.992-.475zm.411 1.83h-.84v-.43c0-.428.14-.643.422-.643.278 0 .418.215.418.644v.429z"></path>
+                    </g>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/italymfa/" target="_blank" rel="noopener noreferrer">
+                <span class="visuallyhidden">Instagram</span>
+                <svg viewBox="0 0 25 25" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="#8d8d8d" fill-rule="evenodd" d="M12.5 25C19.404 25 25 19.404 25 12.5S19.404 0 12.5 0 0 5.596 0 12.5 5.596 25 12.5 25zm3.83-20.833H8.67A4.508 4.508 0 0 0 4.167 8.67v7.66a4.508 4.508 0 0 0 4.503 4.503h7.66a4.508 4.508 0 0 0 4.503-4.503V8.67a4.508 4.508 0 0 0-4.503-4.503zm3.157 12.163a3.16 3.16 0 0 1-3.157 3.157H8.67a3.16 3.16 0 0 1-3.157-3.157V8.67A3.16 3.16 0 0 1 8.67 5.513h7.66a3.16 3.16 0 0 1 3.157 3.157v7.66zm-3.257-4.411a3.711 3.711 0 0 0-1.054-2.095 3.735 3.735 0 0 0-5.644.416 3.713 3.713 0 0 0-.696 2.775 3.713 3.713 0 0 0 1.47 2.454 3.71 3.71 0 0 0 2.775.695 3.713 3.713 0 0 0 2.454-1.47 3.713 3.713 0 0 0 .695-2.775zm-3.346 2.913a2.375 2.375 0 0 1-1.775-.445 2.375 2.375 0 0 1-.94-1.57 2.375 2.375 0 0 1 .444-1.774 2.375 2.375 0 0 1 1.92-.967 2.377 2.377 0 0 1 2.365 2.04 2.393 2.393 0 0 1-2.014 2.716zm4.305-7.021a.678.678 0 0 1 .197.476c0 .177-.072.35-.197.476a.678.678 0 0 1-.476.197.678.678 0 0 1-.476-1.15.678.678 0 0 1 .476-.196c.177 0 .35.072.476.197z"></path>
+                </svg>
+            </a>
+        </li>
+    </ul><br />
+</nav>
 
         
 
 
+<link href="/Content/Site.css" rel="stylesheet" />
+<link href="/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-
-
-
-
-<link rel="stylesheet
-      " href="/Content/jquery-confirm.css" />
-
-<section class="hero">
-    <img class="lazyload blur-up"
-         data-sizes="(max-width: 1181px) 100vw, 1181px"
-         data-srcset="/Content/img/hero/farnesina_home_pic_cut_h9vcpa_c_scale,w_320.jpg 320w,
-        /Content/img/hero/farnesina_home_pic_cut_h9vcpa_c_scale,w_683.jpg 683w,
-        /Content/img/hero/farnesina_home_pic_cut_h9vcpa_c_scale,w_950.jpg 950w,
-        /Content/img/hero/farnesina_home_pic_cut_h9vcpa_c_scale,w_1181.jpg 1181w"
-         src="/Content/img/hero/farnesina_home_pic_cut_h9vcpa_c_scale,w_1181.jpg"
-         alt="">
-</section>
-
-
-<div class="login-register-container">
-    <section class="login">
-        <h1>Accedi</h1>
-
-<form action="/Home/Login" data-parsley-validate="" id="login-form" method="post"><div class="validation-summary-valid text-danger" data-valmsg-summary="true"><ul><li style="display:none"></li>
-</ul></div>            <label for="login-email">Email</label>
-<input class="form-control" data-val="true" data-val-email="Indirizzo E-mail non valido" data-val-length="Lunghezza Email errata" data-val-length-max="255" data-val-length-min="1" data-val-required="Email richiesta" id="login-email" name="Email" required="required" type="email" value="" /><span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true" style="color:red"></span>            <label for="login-password">Password</label>
-<input class="form-control" data-val="true" data-val-length="Lunghezza Password errata" data-val-length-max="30" data-val-length-min="8" data-val-regex="Password Errata" data-val-regex-pattern="^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" data-val-required="Password richiesta" id="login-password" maxlength="20" minlength="8" name="Password" required="required" type="password" value="" /><span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true" style="color:red"></span><a class="forgot-password" href="/Account/ForgotPassword">Password dimenticata?</a>            <button type="submit" class="button primary g-recaptcha" data-sitekey="6LdSmG4cAAAAAOarRxGIhehvv4sPgVeF-vRi-Jqb" data-callback="onSubmit">Avanti</button>
-</form>    </section>
-
-    <p class="login-or-register show-for-small-only">or</p>
-
-    <section class="register">
-        <h1>Registrati</h1>
-        <p>Se non hai ancora effettuato il tuo primo accesso, facendo clic su Registra, puoi compilare il modulo di registrazione per accedere al portale.</p>
-        <a class="button primary" href="/Account/Register">Registrati</a>
-        <a class="forgot-password" href="/Content/docs/TERMINI E CONDIZIONI PRENOT@MI.pdf" target="_blank" style="margin-top: -20px;">Termini e Condizioni</a>
-    </section>
+<link href="/Content/jquery-confirm.css" rel="stylesheet" />
+<script src="/Scripts/jquery-confirm.js"></script>
+<div class="heading-container">
+    <h1>Servizi erogati dalla sede</h1>
+    <p> Scegli il servizio che vuoi prenotare e premi il link &quot;Prenota&quot;</p>
+</div>
+<input id="WlNotAvailable" name="WlNotAvailable" type="hidden" value="Al momento non ci sono date disponibili per il servizio richiesto" /><div style="justify-content:center;display:flex; padding-top: 15px; padding-bottom:15px;">
+    <p style="margin:auto 10px auto 0px">Ricerca:</p>
+    <input style="margin:auto 0" type="text" placeholder="Scrivi una parola per cercare nella tabella" id="myInputTextField">
+</div>
+<div class="table-container">
+    <table id="dataTableServices" class="display"></table>
 </div>
 
+<script type="text/javascript">
+
+    $(window.document).ready(function () {
+
+        $.ajax({
+            type: "GET",
+            url: '/Services/RetrieveServices',
+            dataType: "json",
+
+            success: function (data) {
+                var dt = $('#dataTableServices').DataTable({
+                    data: data,
+                    columns: [
+                        { 'data': 'IdServizioErogato', 'title': 'IdServizioErogato' },
+                        { 'data': 'PrenotazioneOnLine', 'title': 'PrenotazioneOnLine' },
+                        { 'data': 'Prenotabile', 'title': 'Prenotabile' },
+                        { 'data': 'ServizioPadreDescrizione', 'title': 'Tipologia' },
+                        { 'data': 'ServizioConsolareDescrizione', 'title': 'Servizio' },
+                        { 'data': 'ServizioErogatoDescrizione', 'title': 'Descrizione' },
+                        { 'title': 'Prenotazione' },
+                        { 'title': 'Link' },
+                        { 'data': 'Email', 'title': 'Email' }, 
+                        { 'data': 'LinkServizioErogato', 'title': 'LinkServizioErogato' }
+                    ],
+
+                    dom: 'Btp',
+                    info: true,
+
+                    //Paginazione
+                    paging: true,
+                    pageLength: 10,
+                    lengthChange: false,
+                    pagingType: 'simple_numbers',
+
+                    //Sorting
+                    order: true,
+                    ordering: true,
+                    order: [1, 'desc'],
+                    aoColumnDefs: [
+                        { "aTargets": [0], "visible": false },
+                        { "aTargets": [1], "visible": false },
+                        { "aTargets": [2], "visible": false },
+                        { "width": "15%", "aTargets": [3], "bSortable": true },
+                        { "width": "25%", "aTargets": [4], "bSortable": true },
+                        { "width": "25%", "aTargets": [5], "bSortable": true },
+                        {
+                            "width": "20%", "bSortable": false, targets: [6],
+                            "searchable": false,
+                            "render": function (data, type, row) {
+                                if (!row.PrenotazioneOnLine) {
+                                    return 'Prenotazione non necessaria per questo servizio. Per info cliccare sul link -&gt;';
+                                }
+                                if (row.PrenotazioneOnLine && !row.Prenotabile) {
+                                    return 'Calendario prenotazioni ancora non disponibile';
+                                }
+                                if (row.PrenotazioneOnLine && row.Prenotabile && !row.Prenotato) {
+                                    return '<a href="/Services/Booking/' + row.IdServizioErogato + '"><button class="button primary" style="width:7.00rem;">Prenota</button></a>';
+
+                                }
+                                if (row.Prenotato) {
+                                    return 'Prenotazione gi&#224; effettuata per questo servizio';
+                                }
+
+                            }
+                        },
+                        {
+                            "width": "15%",  "bSortable": false,  targets: [7],
+                            "searchable": false,
+                            "render": function (data, type, row) {
+
+                                var Link = row.LinkServizioErogato;
+                                let div = $('<div/>').attr('id', 'links');
+                                if (Link.length > 0) {
+                                    for (let i = 0; i < Link.length; i++){
+                                        let entry = Link[i];
+                                        if (entry != "") {
+                                            if (entry.indexOf("http:") == 0 || entry.indexOf("https:") == 0) {
+                                                div.append('<p><a href="' + entry + '" target="_blank"><i class="fa fa-external-link-alt"></i>&nbsp;&nbsp;Link&nbsp;' + (i + 1) + '</a></p>');
+                                            }
+
+                                            else {
+                                                div.append('<p><a href="https://' + entry + '" target="_blank"><i class="fa fa-external-link-alt"></i>&nbsp;&nbsp;Link&nbsp;' + (i+1) + '</a></p>');
+                                            }
+                                        }
+                                    }
+                                    return div.html();
+                                }
+                                else return '<p> Non ci sono link associati </p>'
+                            }
+                        },
+                        {
+                            "width": "15%", "bSortable": false, targets: [8],
+                            "searchable": false,
+                            "render": function (data, type, row) {
+                                if (row.Email != null && row.Email != "") {
+                                    return '<p>' + row.Email + '</p>';
+                                }
+                                else {
+                                    return '';
+                                }
+                            }
+                        },
+                          { "aTargets": [9], "visible": false },
+                    ],
+                    buttons: [
+
+                    ]
+                });
+                $('#myInputTextField').keyup(function () {
+                    let word = $('#myInputTextField').val();
+                    dt.search(word).draw();
+                });
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.statusText);
+                console.log(status);
+                console.log(error);
+            }
+        });
+
+          $(document).on('click', '.prenotato', function () {
+            $.confirm({
+                title: 'Booking info',
+                content: 'You already have a reservation or you are in waitiling list',
+                buttons: {
+                    Ok: function () {
+
+                    }
+                }
+            });
+          });
+
+        if (!!$('#WlNotAvailable').val()) {
+                 $.confirm({
+                backgroundDismiss: false,
+                backgroundDismissAnimation: 'glow',
+                title: '',
+                content: $('#WlNotAvailable').val(),
+                type: 'blue',
+                typeAnimated: true,
+                buttons: {
+                    ok: {
+                        btnClass: 'btn-blue',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+        }
+
+    });
+</script>
 
 
     </main>
@@ -373,57 +604,5 @@
     </script>
 
     
-    <script src="/bundles/jqueryval?v=ewwbEwxCzNIunbw9c2Y5X5_ldbOkIBIkUo-LvchX7I81"></script>
-
-    <script src="/Content/js/login.js"></script>
-
-
-    <script type="text/javascript" src="/Scripts/jquery-confirm.js"></script>
-
-    <script type="text/javascript">
-        function RequestEmail() {
-            $.confirm({
-                buttons: {
-                    annulla: {
-                        text: 'Annulla'
-                    },
-                    richiedi: {
-                        btnClass: 'btn-blue',
-                        text: 'Avanti',
-                        action: function() {
-                            $.ajax({
-                                type: "POST",
-                                url: '/Account/GenerateMail',
-                                contentType: 'json',
-                                success: function (response) {
-                                    if (response.result == 'Redirect') {
-                                        window.location.href = response.url;
-                                    }
-                                },
-                                error: function () {
-                                    ErrorConfirm();
-                                }
-                            })
-                        }
-                    }
-                },
-                content: '<p>Si vuole procedere con l&#39;invio di una nuova email di attivazione?</p>',
-                title: 'Richiedi email di attivazione'
-            });
-        }
-        function ErrorConfirm() {
-            $.confirm({
-                buttons: {
-                    chiudi: {
-                        text: 'Annulla'
-                    }
-                },
-                content: '<p>Errore durante l&#39;invio dell&#39;email</p>',
-                title: 'Richiedi email di attivazione',
-                type: 'red'
-            });
-        }
-    </script>
-
 </body>
 </html>

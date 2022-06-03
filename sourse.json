@@ -1,0 +1,25 @@
+{
+    "urlAuth": "https://prenotami.esteri.it/Home/Login",
+    "urlVisa": "https://prenotami.esteri.it/Services/Booking/1090",
+    "phrase": "Al momento non ci sono date disponibili per il servizio richiesto",
+    "counter": 0,
+    "log": [],
+    "sid": "AC4b1fb84e16c1460ad115de4d3cc51675",
+    "token": "c07a9c1cc4df8b0b92906e32c4134f62",
+    "phones": [
+        "+375293327812",
+        "+375447335300",
+        "+375447335301"
+    ],
+    "numberFrom": "+14172323445",
+    "notificationText": "Urgently!\n  Visa is available now!\n  Go to the https://prenotami.esteri.it/Services/Booking/1090\n\t{0}",
+    "lastRequestDate": "2022-06-03 23:45:05",
+    "cookiesModified": "2022-06-03 23:45:08",
+    "cookies": {
+        "TS01a5ae52": "01500ad8208906de4473dca17620a0759a0dd862ebe8182fb4e172b514e49ec16f852184f300e61748dd02e2fd59396255d62448ae4a79d30fdcebfed97458d3fe000d8571f454a716fda643ff919e2655ccc63c8f968b7f51cf1c0bc64f2096bcb286fdd9",
+        ".cookie.": "OycQfK1zkmhFCfoHak2gejjDWRDF-vtJJ1Js2P73e4Zz82bVUcSa9Oz_gFoL7r19X0L7q3iNhWNBpdq0rmIwlyYIrAFiJvfKgWdPJMQvDVJYvajBGtMM4bG_y1BS9l2bjUtMVcuMUSQkjQxPbfNWO9mnQz3lqpM2Y_8nw4SYFV5qWNG8-RJb_1vM_frZ7ARu8pwax6N2Vlyjzp0_ahWMhkgN-xMyKuGWhyIBw6eHtQ68MYOSDjEpfn6NJEYX69u_q5AYmR_2sFoAvd4Etq443o6Amsg1oGmPz1etlf1FmwDk0LB_IlJJlQhovGH63FrjIdTFHnxRQ00avu91uBKfJ44SrQd069QY4iIKhY1fV5EYDjRf4uiJjJhvjkYDVadykHSMw9T_v_Q-94UQQ3wlgs6FBM-iT0DX5fkIFLgNO3tq-xm5jTfhm43byyDsn5V9QAXbK62srTXETMB5GQ9KV0ZFf27Oe7Im2cQ0iG-xX8kArRbWavFJ8VKP75Dq4oO3alh6dF6YGjiWPB8ISeK2nLFlkTVswH1y11sha5UPP6gjL3Ms5Cgm5nnbfZRExBIFJRkgWNs1NiAScKQ61-NByao-b-EMFxQ7HWVrCyQIKQ4",
+        "BIGipServerpool_prenotami.esteri.it": "rd21o00000000000000000000ffffc0a806e9o443",
+        "TS203332db027": "081e1ab290ab2000764759759ff114fbb25fb69b4d5359ad7762fa09bdbe2372e03eb4b86ef2fd87086057caf311300082eaa0e363e26ef4012188a0b8364c075501b9cfcfb8d764f7cb7ace7ab9e8a2e679c52cd0b0df70e118b89d4b88d0a7",
+        "_Culture": "1"
+    }
+}
