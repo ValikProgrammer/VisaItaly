@@ -34,7 +34,7 @@ def returnJson():
 
 @app.route("/log")
 def log():
-    with open("/home/valentin13/Desktop/Programming/Python/Code/VisaItaly/log.log", "r") as file:
+    with open("log.log", "r") as file:
         text = file.read()
     arr = text.splitlines()
 
