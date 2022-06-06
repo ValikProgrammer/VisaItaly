@@ -1,0 +1,121 @@
+22:06:06-23:03:25 INFO     main              Starting 1 time
+22:06:06-23:04:57 INFO     getVisa           Response: (200) https://prenotami.esteri.it/Home?ReturnUrl=%2fServices
+22:06:06-23:04:57 WARNING  main              fake html page! Visa : NO
+22:06:06-23:06:53 INFO     updateCookies     Auth response: (200) https://prenotami.esteri.it/UserArea
+22:06:06-23:06:53 INFO     updateCookies     Cookies was upgraded successfully
+22:06:06-23:16:54 INFO     main              Starting 2 time
+22:06:07-00:31:29 CRITICAL main              Killed by user
+22:06:07-00:31:58 INFO     main              Starting 1 time
+22:06:07-00:31:58 WARNING  getVisa           Cookies are old or empty . Get new cookies . delta = 5313.0
+22:06:07-00:32:05 CRITICAL main              Killed by user
+22:06:07-00:32:14 INFO     main              Starting 1 time
+22:06:07-00:32:14 WARNING  getVisa           Cookies are old or empty . Get new cookies . delta = 5329.0
+22:06:07-00:32:15 CRITICAL main              Killed by user
+22:06:07-00:33:05 INFO     main              Starting 1 time
+22:06:07-00:33:05 INFO     _log               * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.0.2:8080 (Press CTRL+C to quit)
+22:06:07-00:33:05 WARNING  getVisa           Cookies are old or empty . Get new cookies . delta = 5380.0
+22:06:07-00:34:40 INFO     updateCookies     Auth response: (200) https://prenotami.esteri.it/UserArea
+22:06:07-00:34:40 INFO     updateCookies     Cookies was upgraded successfully
+22:06:07-00:34:49 INFO     getVisa           Response: (200) https://prenotami.esteri.it/UserArea
+22:06:07-00:34:49 INFO     main              [VISA]: YES
+22:06:07-00:34:49 INFO     sendNotification  I'm gonna send notification with text : Urgently!
+  Visa is available now!
+Go to the https://prenotami.esteri.it/Services/Booking/1090
+
+{0}
+22:06:07-00:34:49 INFO     _log_request      -- BEGIN Twilio API Request --
+22:06:07-00:34:49 INFO     _log_request      POST Request: https://api.twilio.com/2010-04-01/Accounts/AC7dbca2240d07367205c3e5c2c141713b/Messages.json
+22:06:07-00:34:49 INFO     _log_request      Headers:
+22:06:07-00:34:49 INFO     _log_request      User-Agent : twilio-python/7.9.2 (Linux x86_64) Python/3.8.10
+22:06:07-00:34:49 INFO     _log_request      X-Twilio-Client : python-7.9.2
+22:06:07-00:34:49 INFO     _log_request      Accept-Charset : utf-8
+22:06:07-00:34:49 INFO     _log_request      Content-Type : application/x-www-form-urlencoded
+22:06:07-00:34:49 INFO     _log_request      Accept : application/json
+22:06:07-00:34:49 INFO     _log_request      -- END Twilio API Request --
+22:06:07-00:34:50 INFO     _log_response     Response Status Code: 201
+22:06:07-00:34:50 INFO     _log_response     Response Headers: {'Date': 'Mon, 06 Jun 2022 21:34:50 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '906', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ5d5566156c12cf606939a3946049b98b', 'Twilio-Request-Duration': '0.147', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
+22:06:07-00:34:50 ERROR    sendNotification  Can't send notification. Error: module 'logging' has no attribute 'indo'
+22:06:07-00:34:56 INFO     main              Starting 2 time
+22:06:07-00:35:10 INFO     getVisa           Response: (200) https://prenotami.esteri.it/Home?ReturnUrl=%2fUserArea
+22:06:07-00:35:10 WARNING  main              fake html page! Visa : NO
+22:06:07-00:36:03 CRITICAL main              Killed by user
+22:06:07-00:38:34 INFO     main              Starting 1 time
+22:06:07-00:38:34 INFO     _log               * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.0.2:8080 (Press CTRL+C to quit)
+22:06:07-00:38:36 INFO     _log              127.0.0.1 - - [07/Jun/2022 00:38:36] "GET / HTTP/1.1" 200 -
+22:06:07-00:38:36 INFO     _log              127.0.0.1 - - [07/Jun/2022 00:38:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+22:06:07-00:38:38 INFO     _log              127.0.0.1 - - [07/Jun/2022 00:38:38] "[33mGET /service-worker.js HTTP/1.1[0m" 404 -
+22:06:07-00:38:50 INFO     getVisa           Response: (200) https://prenotami.esteri.it/Services
+22:06:07-00:38:50 INFO     main              [VISA]: NO
+22:06:07-00:38:56 INFO     main              Starting 2 time
+22:06:07-00:39:13 INFO     getVisa           Response: (200) https://prenotami.esteri.it/Services
+22:06:07-00:39:13 INFO     main              [VISA]: NO
+22:06:07-00:39:19 INFO     main              Starting 3 time
+22:06:07-00:39:20 CRITICAL main              Killed by user
+22:06:07-00:40:13 INFO     sendNotification  I'm gonna send notification with text : Urgently!
+  Visa is available now!
+Go to the https://prenotami.esteri.it/Services/Booking/1090
+
+{0}
+22:06:07-00:40:14 INFO     _log_request      -- BEGIN Twilio API Request --
+22:06:07-00:40:14 INFO     _log_request      POST Request: https://api.twilio.com/2010-04-01/Accounts/AC7dbca2240d07367205c3e5c2c141713b/Messages.json
+22:06:07-00:40:14 INFO     _log_request      Headers:
+22:06:07-00:40:14 INFO     _log_request      User-Agent : twilio-python/7.9.2 (Linux x86_64) Python/3.8.10
+22:06:07-00:40:14 INFO     _log_request      X-Twilio-Client : python-7.9.2
+22:06:07-00:40:14 INFO     _log_request      Accept-Charset : utf-8
+22:06:07-00:40:14 INFO     _log_request      Content-Type : application/x-www-form-urlencoded
+22:06:07-00:40:14 INFO     _log_request      Accept : application/json
+22:06:07-00:40:14 INFO     _log_request      -- END Twilio API Request --
+22:06:07-00:40:14 INFO     _log_response     Response Status Code: 201
+22:06:07-00:40:14 INFO     _log_response     Response Headers: {'Date': 'Mon, 06 Jun 2022 21:40:14 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '906', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ4e08cfea117f579e0b810b2b634d4a47', 'Twilio-Request-Duration': '0.142', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
+22:06:07-00:40:14 ERROR    sendNotification  Can't send notification. Error: module 'logging' has no attribute 'indo'
+22:06:07-00:41:44 INFO     sendNotification  I'm gonna send notification with text : Urgently!
+  Visa is available now!
+Go to the https://prenotami.esteri.it/Services/Booking/1090
+
+{0}
+22:06:07-00:41:44 INFO     _log_request      -- BEGIN Twilio API Request --
+22:06:07-00:41:44 INFO     _log_request      POST Request: https://api.twilio.com/2010-04-01/Accounts/AC7dbca2240d07367205c3e5c2c141713b/Messages.json
+22:06:07-00:41:44 INFO     _log_request      Headers:
+22:06:07-00:41:44 INFO     _log_request      User-Agent : twilio-python/7.9.2 (Linux x86_64) Python/3.8.10
+22:06:07-00:41:44 INFO     _log_request      X-Twilio-Client : python-7.9.2
+22:06:07-00:41:44 INFO     _log_request      Accept-Charset : utf-8
+22:06:07-00:41:44 INFO     _log_request      Content-Type : application/x-www-form-urlencoded
+22:06:07-00:41:44 INFO     _log_request      Accept : application/json
+22:06:07-00:41:44 INFO     _log_request      -- END Twilio API Request --
+22:06:07-00:41:45 INFO     _log_response     Response Status Code: 201
+22:06:07-00:41:45 INFO     _log_response     Response Headers: {'Date': 'Mon, 06 Jun 2022 21:41:45 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '906', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQf13875230042f1e1bc93f069592f50d8', 'Twilio-Request-Duration': '0.137', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
+22:06:07-00:41:45 INFO     sendNotification  Sending Notification to +375293327812
+22:06:07-00:52:03 INFO     sendNotification  I'm gonna send notification with text : Urgently!
+  Visa is available now!
+Go to the https://prenotami.esteri.it/Services/Booking/1090
+
+2022:06:07-00:38:56(+0300)
+22:06:07-00:52:03 INFO     _log_request      -- BEGIN Twilio API Request --
+22:06:07-00:52:03 INFO     _log_request      POST Request: https://api.twilio.com/2010-04-01/Accounts/AC7dbca2240d07367205c3e5c2c141713b/Messages.json
+22:06:07-00:52:03 INFO     _log_request      Headers:
+22:06:07-00:52:03 INFO     _log_request      User-Agent : twilio-python/7.9.2 (Linux x86_64) Python/3.8.10
+22:06:07-00:52:03 INFO     _log_request      X-Twilio-Client : python-7.9.2
+22:06:07-00:52:03 INFO     _log_request      Accept-Charset : utf-8
+22:06:07-00:52:03 INFO     _log_request      Content-Type : application/x-www-form-urlencoded
+22:06:07-00:52:03 INFO     _log_request      Accept : application/json
+22:06:07-00:52:03 INFO     _log_request      -- END Twilio API Request --
+22:06:07-00:52:04 INFO     _log_response     Response Status Code: 201
+22:06:07-00:52:04 INFO     _log_response     Response Headers: {'Date': 'Mon, 06 Jun 2022 21:52:04 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '929', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQb4efe77baa647236d7ef8a1a320ba2ba', 'Twilio-Request-Duration': '0.152', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
+22:06:07-00:52:04 INFO     sendNotification  Sending Notification to +375293327812
+22:06:07-00:54:34 INFO     _log_request      -- BEGIN Twilio API Request --
+22:06:07-00:54:34 INFO     _log_request      POST Request: https://api.twilio.com/2010-04-01/Accounts/AC7dbca2240d07367205c3e5c2c141713b/Messages.json
+22:06:07-00:54:34 INFO     _log_request      Headers:
+22:06:07-00:54:34 INFO     _log_request      User-Agent : twilio-python/7.9.2 (Linux x86_64) Python/3.8.10
+22:06:07-00:54:34 INFO     _log_request      X-Twilio-Client : python-7.9.2
+22:06:07-00:54:34 INFO     _log_request      Accept-Charset : utf-8
+22:06:07-00:54:34 INFO     _log_request      Content-Type : application/x-www-form-urlencoded
+22:06:07-00:54:34 INFO     _log_request      Accept : application/json
+22:06:07-00:54:34 INFO     _log_request      -- END Twilio API Request --
+22:06:07-00:54:35 INFO     _log_response     Response Status Code: 201
+22:06:07-00:54:35 INFO     _log_response     Response Headers: {'Date': 'Mon, 06 Jun 2022 21:54:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '929', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ4aa11f7829a386857c16a040113d575d', 'Twilio-Request-Duration': '0.139', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
