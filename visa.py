@@ -105,10 +105,10 @@ def sendNotification():
         text = SRC.get('notificationText','ERROR No Text in response {0}').format({SRC["lastRequestDate"]})
         log.info("I'm gonna send notification")
         
-        client = Client(SRC["sid"],SRC["token"])
-        for number in SRC["phones"]:
-            message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
-            # log.info(f"Sending Notification to {number}")
+        # client = Client(SRC["sid"],SRC["token"])
+        # for number in SRC["phones"]:
+        #     message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
+        #     # log.info(f"Sending Notification to {number}")
         log.info("Notification was sent successfully")
     except Exception as e:
         log.error(f"Can't send notification. Error: {e}")
