@@ -21,7 +21,6 @@ log.basicConfig(
 SRC_FILE = "sourse.json"
 SRC      = json.load(open(SRC_FILE))
 
-
 def writeDataToFile(file,text):
     with open(file, "w") as file:
         file.write(text)
@@ -46,7 +45,7 @@ def updateCookies():
         session      = requests.Session()
         authResponse = session.post(SRC["urlAuth"], headers=headers, data=authData) # autotorize at site
         if authResponse.status_code == 200:
-            log.info(f"Auth response: ({authResponse.status_code}) {authResponse.url}")
+            log.info(f"Auth response success : {authResponse.url}")
         else :
             log.error(f"Auth response: ({authResponse.status_code}) {authResponse.url}")
 
@@ -66,8 +65,7 @@ def getVisa():
 
         # check if date of cookies refreshing isn't empty 
         if SRC["cookiesModified"] == "":
-            log.warning("cookiesModified date is empty. Add current date to it")
-            # SRC["cookiesModified"] = SRC["lastRequestDate"]
+            log.warning("CookiesModified date is empty. Add current date to it")
             updateCookies()
         else:
             # Check if cookies are old , if it is true, get new cookies
@@ -102,7 +100,6 @@ def sendNotification():
 def main():
     amountOfStarting = 0
     print("Starting script. Logs can be found in /log.log file")
-    keep_alive()
     while True:
         try: 
             amountOfStarting+=1 
@@ -120,7 +117,7 @@ def main():
                 forbiddenS   = '<!-- Matomo Code -->'
                 forbiddenLen = 429
                 if (len(respArr) == forbiddenLen and respArr[5].strip() == forbiddenS.strip()):
-                    log.warning("fake html page! Visa : NO")
+                    log.warning("[Visa] : NO (fake html page! )")
                     updateCookies()
                 else:
                     log.info("[VISA]: YES")
@@ -136,5 +133,6 @@ def main():
         
 
 if __name__ == "__main__":
+    keep_alive()
     main()
     # sendNotification()
