@@ -29,10 +29,10 @@ def returnJson():
 @app.route("/log")
 def log():
     with open("log.log", "r") as file:
-        text = file.readlines()
+        arr = file.readlines()
     # arr = text.splitlines()
 
-    for l in text:
+    for l in arr:
         print(l)
 
     for i in range(len(arr)):

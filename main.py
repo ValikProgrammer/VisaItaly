@@ -15,7 +15,7 @@ log.basicConfig(
     datefmt="%y:%m:%d-%H:%M:%S", 
     handlers=[
         log.FileHandler('log.log'),
-        # log.StreamHandler()
+        log.StreamHandler()
     ]
 )
 
@@ -100,18 +100,18 @@ def sendNotification():
 
 def main():
     amountOfStarting = 0
-    print("Starting script. Logs can be found in /log.log file")
+    print("[MAIN] Starting script. Logs can be found in /log.log file")
     while True:
         try: 
             amountOfStarting+=1 
-            log.info(f"Starting {amountOfStarting} time")
+            log.warning(f"Starting {amountOfStarting} time")
 
             SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
             response = getVisa()   # get response from website
             SRC["counter"] += 1     # increase counter
 
             if SRC["phrase"] in response:
-                log.info("[VISA]: NO")
+                log.warning("[VISA]: NO")
             else :
                 respArr = response.splitlines()
 
@@ -121,7 +121,7 @@ def main():
                     log.warning("[Visa] : NO (fake html page! )")
                     updateCookies()
                 else:
-                    log.info("[VISA]: YES")
+                    log.warning("[VISA]: YES")
                     sendNotification()
                 writeDataToFile(f'html/visa{SRC["lastRequestDate"]}.html',response) # write our response to file
             writeDataToFile(SRC_FILE,json.dumps(SRC,indent=4)) # write(refresh) our SRC file

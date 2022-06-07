@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <body>
-      <style>
-          .bold {
-              font-weight: bold;
-          }
-      </style>
   <section class="section">
     <div class="box">
       <h1 class="title">
@@ -35,24 +30,23 @@
             <tbody>
                 <tr>
                     <td>cookiesModified</td>
-                    <td class="bold">{{SRC["cookiesModified"]}}</td>
+                    <td><strong>{{SRC["cookiesModified"]}}</strong></td>
                 </tr>
                 <tr>
-                    <td>refresh cookies every (seconds)</td>
-                    <td class="bold">{{SRC["refreshEvery"]}}</td>
+                    <td>refresh cookies every (seconds</td>
+                    <td><strong>{{SRC["refreshEvery"]}}</strong></td>
                 </tr>
                 <tr>
                     <td>lastRequestDate</td>
-                    <td class="bold">{{SRC["lastRequestDate"]}}</td>
+                    <td><strong>{{SRC["lastRequestDate"]}}</strong></td>
                 </tr>
                 <tr>
-                <td>notificationText</td>
-                <td class="bold">{{SRC["notificationText"].format(SRC["lastRequestDate"])}}</td>
+                  <td>notificationText</td>
+                  <td><strong>{{SRC["notificationText"].format(SRC["lastRequestDate"])}}</strong></td>
                 </tr>
-
                 <tr>
-                    <td>phones to call</td>
-                    <td class="bold">{{" ".join(SRC["phones"])}}</td>
+                    <td>phones to call</strong></td>
+                    <td><strong>{{" ".join(SRC["phones"])}}</strong></td>
                 </tr>
             </tbody>
             </table>
