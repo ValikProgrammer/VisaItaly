@@ -17,25 +17,9 @@ log.basicConfig(
         log.StreamHandler()
     ]
 )
-# RED     = "\033[31m"
-# GREEN   = "\033[32m"
-# ORANGE  = "\033[33m"
-# BLUE    = "\033[34m"
-# CURSIVE = "\033[3m"
-# END     = "\033[0m"
 
-# MAIN    = "[{BLUE}MAIN{END}]"
-# MAIN = "MAIN"
-# GV      = "[{BLUE}GV{END}]"
-# NOTIF   = "[{BLUE}NOTIF{END}]"
-# UK      = "[{BLUE}UK{END}]"
-
-# ERROR   = "|{RED}ERROR{END}|"
-# WARNING = "|{ORANGE}WARNING{END}|"
-# SUCCESS = "|{GREEN}SUCCESS{END}|"
-
-SRC_FILE     = "sourse.json"
-SRC = json.load(open(SRC_FILE))
+SRC_FILE = "sourse.json"
+SRC      = json.load(open(SRC_FILE))
 
 
 def writeDataToFile(file,text):
