@@ -8,13 +8,14 @@ from twilio.rest import Client
 from server import keep_alive
 
 import logging as log
+
 log.basicConfig(
     level=log.INFO,
     format='%(asctime)s %(levelname)-8s %(funcName)-17s %(message)s',# %(funcName)-17s (17 is the length of the longest function name - send Notification)
     datefmt="%y:%m:%d-%H:%M:%S", 
     handlers=[
         log.FileHandler('log.log'),
-        log.StreamHandler()
+        # log.StreamHandler()
     ]
 )
 

@@ -3,7 +3,9 @@ from flask import Flask, render_template
 import threading
 # import _thread
 import json
-SRC     = "sourse.json"
+
+SRC = "sourse.json"
+SRC = json.load(open("sourse.json"))
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,20 +15,12 @@ def index():
     TZ = pytz.timezone("Europe/Minsk")
     date = datetime.now(TZ).strftime("%Y-%m-%d %H:%M:%S")
     # return f'Hello from Flask! {date}'
-
-
-
-    SRC = json.load(open("sourse.json"))
-
     return render_template('index.html',date=date,SRC=SRC)
   
 @app.route('/json')
 def returnJson():
-    with open(SRC, "r") as file:
-        text = file.read()
-    src = json.loads(text)
     textLi = ""
-    for k,v in src.items():
+    for k,v in SRC.items():
       textLi += f"<li>{k} : <b>{v}</b></li>\n"
     list = f"""\n<ul>\n{textLi}\n</ul>"""
     
@@ -35,9 +29,11 @@ def returnJson():
 @app.route("/log")
 def log():
     with open("log.log", "r") as file:
-        text = file.read()
-    arr = text.splitlines()
+        text = file.readlines()
+    # arr = text.splitlines()
 
+    for l in text:
+        print(l)
 
     for i in range(len(arr)):
         date  = arr[i] [:17]
@@ -45,13 +41,11 @@ def log():
         func  = arr[i] [27:44]
         msg   = arr[i] [45:]
         new_s = "<div class='box'>"f'<strong>{date}</strong> <span style="color:#00994d">{level}</span> <span style="color:#9933ff">{func}</span> <i>{msg}</i>' + "</div>"
-        # print(new_s)
         arr[i] = new_s
-    text = "\n\n".join(arr)
+    text = "\n".join(arr)
 
 
-    s1 = """
-        <!DOCTYPE html>
+    s1 = """<!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
@@ -72,6 +66,7 @@ def log():
     </section>
     <section class="section">
         <div class="box">
+
         """
     s2 = """
         </div>
@@ -83,10 +78,6 @@ def log():
 
     with open("templates/log.html", "w") as file:
         file.write(html)
-    #     <div class="box">
-    #     {{text}}
-    # </div>
-
 
     return render_template('log.html')
 
