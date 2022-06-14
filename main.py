@@ -5,29 +5,33 @@ import time, pytz
 
 from datetime import datetime
 from twilio.rest import Client
-from server import keep_alive
+# from server import keep_alive
+
+# import logging as log
+
+# log.basicConfig(
+#     level=log.INFO,
+#     format='%(asctime)s %(levelname)-8s %(funcName)-17s %(message)s',# %(funcName)-17s (17 is the length of the longest function name - send Notification)
+#     datefmt="%y:%m:%d-%H:%M:%S", 
+#     handlers=[
+#         log.FileHandler('log.log'),
+#         log.StreamHandler()
+#     ],
+#     'disable_existing_loggers': True,
+# )
 
 import logging as log
+import logging.config
+log.config.fileConfig('logging.conf', disable_existing_loggers=False)
 
-log.basicConfig(
-    level=log.INFO,
-    format='%(asctime)s %(levelname)-8s %(funcName)-17s %(message)s',# %(funcName)-17s (17 is the length of the longest function name - send Notification)
-    datefmt="%y:%m:%d-%H:%M:%S", 
-    handlers=[
-        log.FileHandler('log.log'),
-        log.StreamHandler()
-    ]
-)
-
-SRC_FILE = "sourse.json"
-SRC      = json.load(open(SRC_FILE))
+SRC      = json.load(open("source.json"))
 
 def writeDataToFile(file,text):
     with open(file, "w") as file:
         file.write(text)
-def addDataToFile(file,text):
-    with open(file, "a") as file:
-        file.write(text)
+# def addDataToFile(file,text):
+#     with open(file, "a") as file:
+#         file.write(text)
 # def getDataFromFile(file):
 #     with open(file, "r") as file:
 #         text = file.read()
@@ -46,13 +50,12 @@ def updateCookies():
         session      = requests.Session()
         authResponse = session.post(SRC["urlAuth"], headers=headers, data=authData) # autotorize at site
         if authResponse.status_code == 200:
-            log.info(f"Auth response success : {authResponse.url}")
+            # log.info(f"Auth response success : {authResponse.url}")
+            SRC["cookies"]         = session.cookies.get_dict() # convert cookies to dict
+            SRC["cookiesModified"] = SRC["lastRequestDate"]
+            log.info("Cookies was upgraded successfully")  
         else :
-            log.error(f"Auth response: ({authResponse.status_code}) {authResponse.url}")
-
-        SRC["cookies"]         = session.cookies.get_dict() # convert cookies to dict
-        SRC["cookiesModified"] = SRC["lastRequestDate"]
-        log.info("Cookies was upgraded successfully")   
+            log.error(f"Auth response: ({authResponse.status_code}) {authResponse.url}") 
     except Exception as e:
         log.error(f"Can't update cookies. Error: {e}")
 
@@ -61,7 +64,6 @@ def getVisa():
         headers  = {
             "User-Agent": fake_useragent.UserAgent().random
         }
-
         session  = requests.Session()
 
         # check if date of cookies refreshing isn't empty 
@@ -75,6 +77,7 @@ def getVisa():
                 log.warning(f"Cookies are old or empty . Get new cookies . delta = {delta}")
                 updateCookies()
 
+        # do request to the site with cookies and headers(useragent)
         response = session.get(SRC["urlVisa"], headers=headers,cookies=SRC["cookies"])  
         log.info(f"Response: ({response.status_code}) {response.url}")
         return response.text or ("No text in response "+SRC["phase"])
@@ -88,10 +91,10 @@ def sendNotification():
         text = SRC.get('notificationText','ERROR No Text in response {0}').format({SRC["lastRequestDate"]})
         log.info("I'm gonna send notification")
         
-        # client = Client(SRC["sid"],SRC["token"])
-        # for number in SRC["phones"]:
-        #     message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
-        #     # log.info(f"Sending Notification to {number}")
+        client = Client(SRC["sid"],SRC["token"])
+        for number in SRC["phones"]:
+            message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
+            # log.info(f"Sending Notification to {number}")
         log.info("Notification was sent successfully")
     except Exception as e:
         log.error(f"Can't send notification. Error: {e}")
@@ -99,33 +102,27 @@ def sendNotification():
     
 
 def main():
-    amountOfStarting = 0
-    print("[MAIN] Starting script. Logs can be found in /log.log file")
     while True:
         try: 
-            amountOfStarting+=1 
-            log.warning(f"Starting {amountOfStarting} time")
-
             SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
             response = getVisa()   # get response from website
-            SRC["counter"] += 1     # increase counter
 
             if SRC["phrase"] in response:
-                log.warning("[VISA]: NO")
+                log.info("[VISA]: NO")
             else :
                 respArr = response.splitlines()
-
                 forbiddenS   = '<!-- Matomo Code -->'
                 forbiddenLen = 429
                 if (len(respArr) == forbiddenLen and respArr[5].strip() == forbiddenS.strip()):
                     log.warning("[Visa] : NO (fake html page! )")
                     updateCookies()
                 else:
-                    log.warning("[VISA]: YES")
+                    log.critical("[VISA]: YES")
                     sendNotification()
-                writeDataToFile(f'html/visa{SRC["lastRequestDate"]}.html',response) # write our response to file
+                    writeDataToFile(f'html/visa{SRC["lastRequestDate"]}.html',response) # write our response to file
             writeDataToFile(SRC_FILE,json.dumps(SRC,indent=4)) # write(refresh) our SRC file
-            time.sleep(600)
+            # time.sleep(600)
+            sys.exit(0)
         except KeyboardInterrupt:
             log.critical("Killed by user")
             sys.exit(0)
@@ -134,6 +131,5 @@ def main():
         
 
 if __name__ == "__main__":
-    keep_alive()
+    # keep_alive()
     main()
-    # sendNotification()

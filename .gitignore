@@ -4,3 +4,6 @@ log.log
 poetry.lock
 pyproject.toml
 replit.nix
+T.py
+__pycache__/
+source.json

@@ -2,17 +2,15 @@
     "urlAuth": "https://prenotami.esteri.it/Home/Login",
     "urlVisa": "https://prenotami.esteri.it/Services/Booking/1090",
     "phrase": "Al momento non ci sono date disponibili per il servizio richiesto",
-    "counter": 0,
-    "sid": "AC7dbca2240d07367205c3e5c2c141713b",
-    "token": "b8a17dedac81ddb95606cbb90eb1e8bf",
+    "sid": "AC931feeade6da23329e10c89608c92859",
+    "token": "ba21c92dba02ee50032fa2e06249514f",
+    "numberFrom": "+18573824738",
     "phones": ["+375293327812"],
-    "numberFrom": "+19472254317",
     "notificationText": "Urgently!\n  Visa is available now!\nGo to the https://prenotami.esteri.it/Services/Booking/1090\n\n{0}",
     "lastRequestDate": "",
     "cookiesModified": "",
     "refreshEvery":1800,
     "tz": "Europe/Minsk",
     "timeFormat": "%Y:%m:%d-%H:%M:%S(%z)",
-    "cookies": {},
-    "log": {}
+    "cookies": {}
 }
