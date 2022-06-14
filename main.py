@@ -101,7 +101,7 @@ def getVisa():
 
 def sendNotification():
     try:
-        text = SRC.get('notificationText','ERROR No Text in response {0}').format({SRC["lastRequestDate"]})
+        text = (SRC.get('notificationText','ERROR No Text in response {0}')).format(SRC["lastRequestDate"])
         log.info("I'm gonna send notification")
         
         for number in SRC["phones"]:
@@ -130,7 +130,7 @@ def main():
         SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
         response = getVisa()   # get response from website
 
-        if SRC["phrase"] not in response:
+        if SRC["phrase"] in response:
             log.warning("[VISA]: NO")
         else :
             respArr = response.splitlines()
