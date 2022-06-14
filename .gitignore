@@ -1,10 +1,7 @@
-templates/log.html
-log.log
 .replit
 poetry.lock
 pyproject.toml
 replit.nix
 T.py
-source.json
 __pycache__/
 html/
