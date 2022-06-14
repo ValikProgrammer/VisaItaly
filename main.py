@@ -1,4 +1,16 @@
 # -*- coding: utf-8 -*-
+"""
+* * * * *        echo "i am working every minute! ($(date))"                  >> cronLogEveryMinute
+*/10 0-1 * * *   echo "from 0-1 hour every 10 minutes script run ($(date))"   >> pythonScriptRunningTest
+*/30 2-9 * * *   echo "from 2-9 hour every 30 minutes script run ($(date))"   >> pythonScriptRunningTest
+*/10 10-23 * * * echo "from 10-23 hour every 10 minutes script run ($(date))" >> pythonScriptRunningTest
+
+
+*/10 0-1 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
+*/30 2-9 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
+*/10 10-23 * * * cd /home/valikprogrammer/VisaItaly && python3 main.py
+"""
+
 import os, sys, json
 import requests, fake_useragent
 import time, pytz
@@ -92,10 +104,20 @@ def sendNotification():
         text = SRC.get('notificationText','ERROR No Text in response {0}').format({SRC["lastRequestDate"]})
         log.info("I'm gonna send notification")
         
-        client = Client(SRC["sid"],SRC["token"])
         for number in SRC["phones"]:
-            message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
-            # log.info(f"Sending Notification to {number}")
+            s = f'''
+            curl -X POST https://api.twilio.com/2010-04-01/Accounts/AC931feeade6da23329e10c89608c92859/Messages.json \
+            --data-urlencode "Body={text}" \
+            --data-urlencode "From={SRC['numberFrom']}" \
+            --data-urlencode "To={number}" \
+            -u AC931feeade6da23329e10c89608c92859:acb9c31465735a78a752439c86f0d626'''
+            os.system(s)
+
+        # Version1 (working with some errors[i don,t know why])
+        # client = Client(SRC["sid"],SRC["token"])
+        # for number in SRC["phones"]:
+        #     message = client.messages.create(to=number,from_=SRC["numberFrom"],body=text)
+        #     # log.info(f"Sending Notification to {number}")
         log.info("Notification was sent successfully")
     except Exception as e:
         e = ' ; '.join( str(e).split('\n') )
