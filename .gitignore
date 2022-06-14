@@ -1,9 +1,9 @@
 templates/log.html
-log.log
 .replit
 poetry.lock
 pyproject.toml
 replit.nix
 T.py
-__pycache__/
 source.json
+__pycache__/
+html/

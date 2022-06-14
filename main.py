@@ -22,9 +22,10 @@ from twilio.rest import Client
 
 import logging as log
 import logging.config
-log.config.fileConfig('logging.conf', disable_existing_loggers=False)
+log.config.fileConfig('logging.conf', disable_existing_loggers=True)
 
-SRC      = json.load(open("source.json"))
+SRC_FILE = "source.json"
+SRC      = json.load(open(SRC_FILE))
 
 def writeDataToFile(file,text):
     with open(file, "w") as file:
@@ -97,37 +98,37 @@ def sendNotification():
             # log.info(f"Sending Notification to {number}")
         log.info("Notification was sent successfully")
     except Exception as e:
+        e = ' ; '.join( str(e).split('\n') )
         log.error(f"Can't send notification. Error: {e}")
     # log.info("Notif")
     
 
 def main():
-    while True:
-        try: 
-            SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
-            response = getVisa()   # get response from website
+    try: 
+        SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
+        response = getVisa()   # get response from website
 
-            if SRC["phrase"] in response:
-                log.info("[VISA]: NO")
-            else :
-                respArr = response.splitlines()
-                forbiddenS   = '<!-- Matomo Code -->'
-                forbiddenLen = 429
-                if (len(respArr) == forbiddenLen and respArr[5].strip() == forbiddenS.strip()):
-                    log.warning("[Visa] : NO (fake html page! )")
-                    updateCookies()
-                else:
-                    log.critical("[VISA]: YES")
-                    sendNotification()
-                    writeDataToFile(f'html/visa{SRC["lastRequestDate"]}.html',response) # write our response to file
-            writeDataToFile(SRC_FILE,json.dumps(SRC,indent=4)) # write(refresh) our SRC file
-            # time.sleep(600)
-            sys.exit(0)
-        except KeyboardInterrupt:
-            log.critical("Killed by user")
-            sys.exit(0)
-        except Exception as e:
-            log.error(f"Failed to get visa. Error: {e}",)
+        if SRC["phrase"] not in response:
+            log.warning("[VISA]: NO")
+        else :
+            respArr = response.splitlines()
+            forbiddenS   = '<!-- Matomo Code -->'
+            forbiddenLen = 429
+            if (len(respArr) == forbiddenLen and respArr[5].strip() == forbiddenS.strip()):
+                log.warning("[Visa] : NO (fake html page! )")
+                updateCookies()
+            else:
+                log.critical("[VISA]: YES")
+                sendNotification()
+                writeDataToFile(f'html/visa{SRC["lastRequestDate"]}.html',response) # write our response to file
+        writeDataToFile(SRC_FILE,json.dumps(SRC,indent=4)) # write(refresh) our SRC file
+        # time.sleep(600)
+        sys.exit(0)
+    except KeyboardInterrupt:
+        log.critical("Killed by user")
+        sys.exit(0)
+    except Exception as e:
+        log.error(f"Failed to get visa. Error: {e}",)
         
 
 if __name__ == "__main__":
