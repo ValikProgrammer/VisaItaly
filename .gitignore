@@ -1,2 +1,6 @@
 templates/log.html
 log.log
+.replit
+poetry.lock
+pyproject.toml
+replit.nix
