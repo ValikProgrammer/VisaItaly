@@ -9,7 +9,15 @@
 */10 0-1 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
 */30 2-9 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
 */10 10-23 * * * cd /home/valikprogrammer/VisaItaly && python3 main.py
+
+# for my linux comp
+*/10 0-1 * * *   cd /home/valentin13/Desktop/Programming/Python/Code/VisaItaly/ && python3 main.py
+*/30 2-9 * * *   cd /home/valentin13/Desktop/Programming/Python/Code/VisaItaly/ && python3 main.py
+*/10 10-23 * * * cd /home/valentin13/Desktop/Programming/Python/Code/VisaItaly/ && python3 main.py
+* * * * * cd /home/valentin13/Desktop/Programming/Python/Code/VisaItaly/ && python3 main.py
+
 """
+
 
 import os, sys, json
 import requests, fake_useragent
@@ -53,7 +61,7 @@ def writeDataToFile(file,text):
 def updateCookies():
     try:
         headers  = {
-                "User-Agent": fake_useragent.UserAgent().random
+            "User-Agent":fake_useragent.UserAgent().random #"Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"# fake_useragent.UserAgent().random
         }
         authData = {
                 "Email": "Dzmitry_Khilko@epam.com",
@@ -73,9 +81,9 @@ def updateCookies():
         log.error(f"Can't update cookies. Error: {e}")
 
 def getVisa():
-    try:
+    # try:
         headers  = {
-            "User-Agent": fake_useragent.UserAgent().random
+            "User-Agent":fake_useragent.UserAgent().random #"Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"# fake_useragent.UserAgent().random
         }
         session  = requests.Session()
 
@@ -93,10 +101,13 @@ def getVisa():
         # do request to the site with cookies and headers(useragent)
         response = session.get(SRC["urlVisa"], headers=headers,cookies=SRC["cookies"])  
         log.info(f"Response: ({response.status_code}) {response.url}")
-        return response.text or ("No text in response "+SRC["phase"])
-    except Exception as e:
-        log.error(f"Can't get visa. Error: {e}")
-        return ("No text in response "+SRC["phase"]) # чтоб оно не думало что раз фразы нету в тексте то значит виза есть (на самом деле фразы в тесте нету из-за ошибки)
+
+        writeDataToFile("response.html",response.text)
+
+        return response.text or ("No text in response "+SRC["phrase"])
+    # except Exception as e:
+    #     log.error(f"Can't get visa. Error: {e}")
+    #     return ("No text in response "+SRC["phrase"]) # чтоб оно не думало что раз фразы нету в тексте то значит виза есть (на самом деле фразы в тесте нету из-за ошибки)
     
 
 def sendNotification():
@@ -126,7 +137,7 @@ def sendNotification():
     
 
 def main():
-    try: 
+    # try: 
         SRC["lastRequestDate"] = datetime.now(pytz.timezone(SRC["tz"])).strftime(SRC["timeFormat"])            
         response = getVisa()   # get response from website
 
@@ -146,12 +157,7 @@ def main():
         writeDataToFile(SRC_FILE,json.dumps(SRC,indent=4)) # write(refresh) our SRC file
         # time.sleep(600)
         sys.exit(0)
-    except KeyboardInterrupt:
-        log.critical("Killed by user")
-        sys.exit(0)
-    except Exception as e:
-        log.error(f"Failed to get visa. Error: {e}",)
-        
+
 
 if __name__ == "__main__":
     # keep_alive()
