@@ -6,9 +6,10 @@
 */10 10-23 * * * echo "from 10-23 hour every 10 minutes script run ($(date))" >> pythonScriptRunningTest
 
 
-*/10 0-1 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
-*/30 2-9 * * *   cd /home/valikprogrammer/VisaItaly && python3 main.py
-*/10 10-23 * * * cd /home/valikprogrammer/VisaItaly && python3 main.py
+# Run script Visa Italy on GCP
+*/10 0-1 * * *   cd /home/valikprogrammer/VisaItaly/ && /home/valikprogrammer/miniconda3/bin/python3 main.py
+*/30 2-9 * * *   cd /home/valikprogrammer/VisaItaly/ && /home/valikprogrammer/miniconda3/bin/python3 main.py
+*/10 10-23 * * * cd /home/valikprogrammer/VisaItaly/ && /home/valikprogrammer/miniconda3/bin/python3 main.py
 
 # for my linux comp
 */10 0-1 * * *   cd /home/valentin13/Desktop/Programming/Python/Code/VisaItaly/ && python3 main.py
